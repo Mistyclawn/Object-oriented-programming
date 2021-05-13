@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string> //stringÀÚ·áÇü »ç¿ëÇÏ±â
+#include <string> //stringìë£Œí˜• ì‚¬ìš©í•˜ê¸°
 #include <iomanip>
 #include <cstring>
 #include <stdlib.h>
@@ -18,7 +18,7 @@ inline void InputValue(char* str)
 inline void InputValue(int& i)
 {
 	cin >> i;
-	cin.ignore(); //Ãß°¡»çÇ×
+	cin.ignore(); //ì¶”ê°€ì‚¬í•­
 };
 
 inline void InputValue(string& A)
@@ -28,19 +28,19 @@ inline void InputValue(string& A)
 
 struct Subject
 {
-	string SubName;		// °ú¸ñÀÌ¸§char[30]¿¡¼­ stringÀ¸·Î º¯°æ
-	int Hakjum;				// °ú¸ñÇĞÁ¡ 
-	string Grade;			// °ú¸ñµî±Ş
-	float GPA;				// °ú¸ñ ÆòÁ¡
+	string SubName;		// ê³¼ëª©ì´ë¦„char[30]ì—ì„œ stringìœ¼ë¡œ ë³€ê²½
+	int Hakjum;				// ê³¼ëª©í•™ì  
+	string Grade;			// ê³¼ëª©ë“±ê¸‰
+	float GPA;				// ê³¼ëª© í‰ì 
 };
 
-struct Student //ÇĞ»ıÁ¤º¸
+struct Student //í•™ìƒì •ë³´
 {
-	string StdName;		// ÇĞ»ı ÀÌ¸§, char[30]¿¡¼­ stringÀ¸·Î º¯°æ
-	int Hakbun;				// ÇĞ¹ø
-	struct Subject* Sub;		// °ú¸ñ
-	int SubNum;				// °ú¸ñ ¼ö, 4¿ù16ÀÏ Ãß°¡
-	float AveGPA;			// ±³°ú¸ñ Æò±Õ ÆòÁ¡
+	string StdName;		// í•™ìƒ ì´ë¦„, char[30]ì—ì„œ stringìœ¼ë¡œ ë³€ê²½
+	int Hakbun;				// í•™ë²ˆ
+	struct Subject* Sub;		// ê³¼ëª©
+	int SubNum;				// ê³¼ëª© ìˆ˜, 4ì›”16ì¼ ì¶”ê°€
+	float AveGPA;			// êµê³¼ëª© í‰ê·  í‰ì 
 };
 
 float CalcAveGPA(Subject* Sub, int num);
@@ -51,35 +51,35 @@ void PrintOneData(const Student& rSt);
 
 void PrintAllData(const Student* pSt, int studentnum);
 
-Student* StdSearch(Student* pSt, int a);//ÁÖ¼ÒÃ£±â
+Student* StdSearch(Student* pSt, int a);//ì£¼ì†Œì°¾ê¸°
 
-void PrintAllStdList(const Student* pSt, int StudentNum = 2); //ÇĞ»ıÀÌ¸§,ÇĞ¹ø¸ğµÎÃâ·Â
+void PrintAllStdList(const Student* pSt, int StudentNum = 2); //í•™ìƒì´ë¦„,í•™ë²ˆëª¨ë‘ì¶œë ¥
 
-//void Modify(Student* pSt); // pSt´Â ¼öÁ¤ÇÒ ÇĞ»ıÁ¤º¸ Æ÷ÀÎÅÍ ¸Å°³º¯¼ö, ModifyStdInfo·Î È®Àå
+//void Modify(Student* pSt); // pStëŠ” ìˆ˜ì •í•  í•™ìƒì •ë³´ í¬ì¸í„° ë§¤ê°œë³€ìˆ˜, ModifyStdInfoë¡œ í™•ì¥
 
-void ModifyStdInfo(Student* pSt, int StdNum); // ÇÔ¼ö Ãß°¡. ½Å»óÁ¤º¸¿Í ±³°ú¸ñÁ¤º¸¼öÁ¤ Àç±¸Çö
+void ModifyStdInfo(Student* pSt, int StdNum); // í•¨ìˆ˜ ì¶”ê°€. ì‹ ìƒì •ë³´ì™€ êµê³¼ëª©ì •ë³´ìˆ˜ì • ì¬êµ¬í˜„
 
-Subject* SubSearch(const Student& pSt); //Æ¯Á¤°ú¸ñ Å½»öÇÔ¼ö. ModifyStdInfoÇÔ¼ö¿¡ Æ÷ÇÔµÇ¾îÀÖ´Ù.
+Subject* SubSearch(const Student& pSt); //íŠ¹ì •ê³¼ëª© íƒìƒ‰í•¨ìˆ˜. ModifyStdInfoí•¨ìˆ˜ì— í¬í•¨ë˜ì–´ìˆë‹¤.
 
-void InputData(Student* pSt, int i) //ÇĞ»ıÁ¤º¸ÀÔ·Â ¸ğµâÈ­
+void InputData(Student* pSt, int i) //í•™ìƒì •ë³´ì…ë ¥ ëª¨ë“ˆí™”
 {
 
-	cout << "ÀÌ¸§ : ";
+	cout << "ì´ë¦„ : ";
 	InputValue(pSt[i].StdName);
-	cout << "ÇĞ¹ø : ";
+	cout << "í•™ë²ˆ : ";
 	InputValue(pSt[i].Hakbun);
 
 
-	printf("\n¼ö°­ÇÑ °ú¸ñ %d°³¿Í °¢ ±³°ú¸ñ¸í, °ú¸ñÇĞÁ¡, °ú¸ñµî±ŞÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n", pSt[i].SubNum);
+	printf("\nìˆ˜ê°•í•œ ê³¼ëª© %dê°œì™€ ê° êµê³¼ëª©ëª…, ê³¼ëª©í•™ì , ê³¼ëª©ë“±ê¸‰ì„ ì…ë ¥í•˜ì„¸ìš”.\n", pSt[i].SubNum);
 	pSt[i].AveGPA = 0;
 	int j;
 	for (j = 0; j < pSt[i].SubNum; j++)
 	{
-		cout << "±³°ú¸ñ¸í : ";
+		cout << "êµê³¼ëª©ëª… : ";
 		InputValue(pSt[i].Sub[j].SubName);
-		cout << "°ú¸ñÇĞÁ¡¼ö : ";
+		cout << "ê³¼ëª©í•™ì ìˆ˜ : ";
 		InputValue(pSt[i].Sub[j].Hakjum);
-		cout << "°ú¸ñµî±Ş(A+ ~ F) : ";
+		cout << "ê³¼ëª©ë“±ê¸‰(A+ ~ F) : ";
 		InputValue(pSt[i].Sub[j].Grade);
 
 		CalcGPA(pSt[i].Sub[j]);
@@ -97,12 +97,12 @@ int main()
 {
 	int menn = 0;
 	int studentnum, i;
-	//struct Student stlist[2]; //±¸Çü ±¸Á¶Ã¼ stlist. 2¸í¸¸ ¹ŞÀ»¼öÀÖ´Ù.
+	//struct Student stlist[2]; //êµ¬í˜• êµ¬ì¡°ì²´ stlist. 2ëª…ë§Œ ë°›ì„ìˆ˜ìˆë‹¤.
 
-	printf("ÀüÃ¼ ÇĞ»ı ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä. : "); // studentnum¿¡ ÇĞ»ı¼öÀÔ·Â
+	printf("ì „ì²´ í•™ìƒ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”. : "); // studentnumì— í•™ìƒìˆ˜ì…ë ¥
 	InputValue(studentnum);
 
-	Student* stlist = new Student[studentnum];	//stlist¸¦ µ¿Àû ¼±¾ğ.
+	Student* stlist = new Student[studentnum];	//stlistë¥¼ ë™ì  ì„ ì–¸.
 
 	while (menn != 6)
 	{
@@ -110,15 +110,15 @@ int main()
 		InputValue(menn);
 
 		if (menn == 1)
-		{	//¼ºÀû ÀÔ·Â
+		{	//ì„±ì  ì…ë ¥
 			for (i = 0; i < studentnum; i++) {
 
-				printf("\n%d ¹øÂ° ÇĞ»ıÀÌ ¼ö°­ÇÑ °ú¸ñ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä. :", i + 1);
+				printf("\n%d ë²ˆì§¸ í•™ìƒì´ ìˆ˜ê°•í•œ ê³¼ëª©ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”. :", i + 1);
 				InputValue(stlist[i].SubNum);
 
 				stlist[i].Sub = new Subject[stlist[i].SubNum];
 
-				printf("\n%d ¹øÂ° ÇĞ»ı ÀÌ¸§°ú ÇĞ¹øÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n", i + 1);
+				printf("\n%d ë²ˆì§¸ í•™ìƒ ì´ë¦„ê³¼ í•™ë²ˆì„ ì…ë ¥í•˜ì„¸ìš”.\n", i + 1);
 
 				InputData(stlist, i);
 			}
@@ -134,7 +134,7 @@ int main()
 			if (SearchStd != 0)
 				PrintOneData(*SearchStd);
 			else
-				cout << "\nÁ¤º¸°¡ ¾ø½À´Ï´Ù.\n";
+				cout << "\nì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.\n";
 		};
 		if (menn == 4)
 		{
@@ -146,10 +146,10 @@ int main()
 		};
 	};
 
-	delete[] stlist;	//»ç¿ëÇÑ ¸Ş¸ğ¸® ÇØÁ¦
+	delete[] stlist;	//ì‚¬ìš©í•œ ë©”ëª¨ë¦¬ í•´ì œ
 	stlist = NULL;
 
-	cout << ("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+	cout << ("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 
 	return 0;
 };
@@ -157,14 +157,14 @@ int main()
 
 inline void PrintMenu()
 {
-	cout << "\n===== ¸Ş´º =====\n";
-	cout << "1. ÇĞ»ı ¼ºÀû ÀÔ·Â\n";
-	cout << "2. ÀüÃ¼ ÇĞ»ı ¼ºÀû º¸±â\n";
-	cout << "3. ÇĞ»ı ÀÌ¸§ °Ë»ö\n";
-	cout << "4. ÀüÃ¼ ÇĞ»ı ¸ñ·Ï º¸±â\n";
-	cout << "5. ÇĞ»ı Á¤º¸ ¼öÁ¤\n";
-	cout << "6. ÇÁ·Î±×·¥ Á¾·á\n\n";
-	cout << "¿øÇÏ´Â ±â´ÉÀ» ÀÔ·ÂÇÏ¼¼¿ä. :";
+	cout << "\n===== ë©”ë‰´ =====\n";
+	cout << "1. í•™ìƒ ì„±ì  ì…ë ¥\n";
+	cout << "2. ì „ì²´ í•™ìƒ ì„±ì  ë³´ê¸°\n";
+	cout << "3. í•™ìƒ ì´ë¦„ ê²€ìƒ‰\n";
+	cout << "4. ì „ì²´ í•™ìƒ ëª©ë¡ ë³´ê¸°\n";
+	cout << "5. í•™ìƒ ì •ë³´ ìˆ˜ì •\n";
+	cout << "6. í”„ë¡œê·¸ë¨ ì¢…ë£Œ\n\n";
+	cout << "ì›í•˜ëŠ” ê¸°ëŠ¥ì„ ì…ë ¥í•˜ì„¸ìš”. :";
 };
 
 float Grading(string A)
@@ -214,9 +214,9 @@ float CalcAveGPA(Subject* Sub, int num)
 
 void PrintOneData(const Student& rSt)
 {
-	cout << "\nÀÌ¸§ :" << rSt.StdName << "  ÇĞ¹ø :" << rSt.Hakbun;
+	cout << "\nì´ë¦„ :" << rSt.StdName << "  í•™ë²ˆ :" << rSt.Hakbun;
 	cout << "\n--------------------------------------------------\n";
-	cout << "      °ú¸ñ¸í   °ú¸ñÇĞÁ¡   °ú¸ñµî±Ş   °ú¸ñÆòÁ¡\n";
+	cout << "      ê³¼ëª©ëª…   ê³¼ëª©í•™ì    ê³¼ëª©ë“±ê¸‰   ê³¼ëª©í‰ì \n";
 	cout << "\n--------------------------------------------------\n";
 	int i;
 	for (i = 0; i < rSt.SubNum; i++)
@@ -236,13 +236,13 @@ void PrintOneData(const Student& rSt)
 	cout << "\n--------------------------------------------------";
 	cout << "\n";
 	cout.precision(2);
-	cout << "                      Æò±ÕÆòÁ¡ : " << rSt.AveGPA;
+	cout << "                      í‰ê· í‰ì  : " << rSt.AveGPA;
 	cout << "\n\n";
 };
 
 void PrintAllData(const Student* pSt, int studentnum)
 {
-	cout << "\n\n               ÀüÃ¼ ÇĞ»ı ¼ºÀû º¸±â\n--------------------------------------------------\n";
+	cout << "\n\n               ì „ì²´ í•™ìƒ ì„±ì  ë³´ê¸°\n--------------------------------------------------\n";
 	int i;
 	for (i = 0; i < studentnum; i++) {
 		PrintOneData(pSt[i]);
@@ -251,9 +251,9 @@ void PrintAllData(const Student* pSt, int studentnum)
 
 Student* StdSearch(Student* pSt, int a)
 {
-	string targetStd; //char[30]¿¡¼­ stringÀ¸·Î º¯°æ
+	string targetStd; //char[30]ì—ì„œ stringìœ¼ë¡œ ë³€ê²½
 	Student* SearchStd;
-	cout << "\n°Ë»öÇÒ ÇĞ»ıÀÇ ÀÌ¸§ : ";
+	cout << "\nê²€ìƒ‰í•  í•™ìƒì˜ ì´ë¦„ : ";
 	InputValue(targetStd);
 	int i;
 	for (i = 0; i < a; i++)
@@ -267,15 +267,15 @@ Student* StdSearch(Student* pSt, int a)
 	if (strcmp(pSt[1].StdName, targetStd) == 0)
 		return &pSt[1];
 	*/
-	//ÀÚ·á µÎ°³¸¸ÀÖ´ø½ÃÀı °Ë»ö±â´É
+	//ìë£Œ ë‘ê°œë§Œìˆë˜ì‹œì ˆ ê²€ìƒ‰ê¸°ëŠ¥
 	return NULL;
 };
 
 
-void PrintAllStdList(const Student* pSt, int StudentNum) //µğÆúÆ®°ª 2 ¸Å°³º¯¼ö
+void PrintAllStdList(const Student* pSt, int StudentNum) //ë””í´íŠ¸ê°’ 2 ë§¤ê°œë³€ìˆ˜
 {
 	cout << "\n--------------------------------------------------";
-	cout << "\n        ÇĞ¹ø          ÀÌ¸§";
+	cout << "\n        í•™ë²ˆ          ì´ë¦„";
 	cout << "\n--------------------------------------------------";
 	int k;
 	for (k = 0; k < StudentNum; k++)
@@ -287,24 +287,24 @@ void PrintAllStdList(const Student* pSt, int StudentNum) //µğÆúÆ®°ª 2 ¸Å°³º¯¼ö
 	};
 	cout << "\n--------------------------------------------------\n";
 };
-/* ÀÌÀü Modify ÇÔ¼ö ¹é¾÷
+/* ì´ì „ Modify í•¨ìˆ˜ ë°±ì—…
 void Modify(Student* pSt)
 {
 	int i;
 	Student* SearchStd;
-	cout << "\nÇöÀç ÇĞ»ı ¼ö¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.:";
+	cout << "\ní˜„ì¬ í•™ìƒ ìˆ˜ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.:";
 	InputValue(i);
 	SearchStd = StdSearch(pSt,i);
-	if (SearchStd != 0)// 0ÀÌ¾Æ´Ï¸é ÀÌ¸§ÇĞ¹ø ¼öÁ¤
+	if (SearchStd != 0)// 0ì´ì•„ë‹ˆë©´ ì´ë¦„í•™ë²ˆ ìˆ˜ì •
 	{
-		cout << "\nÇĞ»ı ÀÌ¸§°ú ÇĞ¹øÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n"; //¾È³»¹®
-		cout << "ÀÌ¸§ : ";
+		cout << "\ní•™ìƒ ì´ë¦„ê³¼ í•™ë²ˆì„ ì…ë ¥í•˜ì„¸ìš”.\n"; //ì•ˆë‚´ë¬¸
+		cout << "ì´ë¦„ : ";
 		InputValue(SearchStd->StdName);
-		cout << "ÇĞ¹ø : ";
+		cout << "í•™ë²ˆ : ";
 		InputValue(SearchStd->Hakbun);
 	}
 	else
-		cout << "\nÁ¤º¸°¡ ¾ø½À´Ï´Ù.\n";
+		cout << "\nì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.\n";
 };
 */
 void ModifyStdInfo(Student* pSt, int StdNum)
@@ -312,34 +312,34 @@ void ModifyStdInfo(Student* pSt, int StdNum)
 	Student* SearchStd;
 	SearchStd = StdSearch(pSt, StdNum);
 
-	if (SearchStd != 0) //0ÀÌ¾Æ´Ï¸é ÀÌ¸§ÇĞ¹ø ¼öÁ¤
+	if (SearchStd != 0) //0ì´ì•„ë‹ˆë©´ ì´ë¦„í•™ë²ˆ ìˆ˜ì •
 	{
 		string Type;
-		cout << "\n¼öÁ¤(ÇĞ»ıÁ¤º¸/°ú¸ñÁ¤º¸) :";
+		cout << "\nìˆ˜ì •(í•™ìƒì •ë³´/ê³¼ëª©ì •ë³´) :";
 		InputValue(Type);
 
-		if (Type == "ÇĞ»ıÁ¤º¸")
+		if (Type == "í•™ìƒì •ë³´")
 		{
-			cout << "\nÇĞ»ı ÀÌ¸§°ú ÇĞ¹øÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n"; //¾È³»¹®
-			cout << "ÀÌ¸§ : ";
+			cout << "\ní•™ìƒ ì´ë¦„ê³¼ í•™ë²ˆì„ ì…ë ¥í•˜ì„¸ìš”.\n"; //ì•ˆë‚´ë¬¸
+			cout << "ì´ë¦„ : ";
 			InputValue(SearchStd->StdName);
-			cout << "ÇĞ¹ø : ";
+			cout << "í•™ë²ˆ : ";
 			InputValue(SearchStd->Hakbun);
 		}
-		else if (Type == "°ú¸ñÁ¤º¸")
+		else if (Type == "ê³¼ëª©ì •ë³´")
 		{
-			Subject* SearchSub = SubSearch(SearchStd[0]);   // ±³°ú¸ñ Å½»ö
-			// °ú¸ñ Å½»öÇÏ°í ¼öÁ¤ÇÏ´Â ºÎºĞ
-			// °ú¸ñÀÇ µî±Ş°ú ÇĞÁ¡¼ö°¡ ¹Ù²î¸é ÆòÁ¡µµ ¹Ù²ï´Ù. 
+			Subject* SearchSub = SubSearch(SearchStd[0]);   // êµê³¼ëª© íƒìƒ‰
+			// ê³¼ëª© íƒìƒ‰í•˜ê³  ìˆ˜ì •í•˜ëŠ” ë¶€ë¶„
+			// ê³¼ëª©ì˜ ë“±ê¸‰ê³¼ í•™ì ìˆ˜ê°€ ë°”ë€Œë©´ í‰ì ë„ ë°”ë€ë‹¤. 
 			if(SearchSub == NULL)
-				cout << "\n°ú¸ñÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.";
+				cout << "\nê³¼ëª©ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.";
 			else
 			{
-				cout << "\n±³°ú¸ñ¸í : ";
+				cout << "\nêµê³¼ëª©ëª… : ";
 				InputValue(SearchSub->SubName);
-				cout << "°ú¸ñÇĞÁ¡¼ö : ";
+				cout << "ê³¼ëª©í•™ì ìˆ˜ : ";
 				InputValue(SearchSub->Hakjum);
-				cout << "°ú¸ñµî±Ş(A+ ~ F) : ";
+				cout << "ê³¼ëª©ë“±ê¸‰(A+ ~ F) : ";
 				InputValue(SearchSub->Grade);
 
 				CalcGPA(*SearchSub);
@@ -354,14 +354,14 @@ void ModifyStdInfo(Student* pSt, int StdNum)
 		}
 	}
 	else
-		cout << "\nÁ¤º¸°¡ ¾ø½À´Ï´Ù.\n";
+		cout << "\nì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.\n";
 
 };
 
 Subject* SubSearch(const Student& pSt) {
 	string tempSubName; 
 	Student SearchStd = pSt;
-	cout << "\n°Ë»öÇÒ °ú¸ñ ÀÌ¸§:";
+	cout << "\nê²€ìƒ‰í•  ê³¼ëª© ì´ë¦„:";
 	InputValue(tempSubName);
 	int i = 0;
 	int cnt = -1;
@@ -378,7 +378,7 @@ Subject* SubSearch(const Student& pSt) {
 	}
 	else
 	{
-		cout << "\n*(" << SearchStd.Sub[cnt].SubName << ", ÇĞÁ¡ :" << SearchStd.Sub[cnt].Hakjum << ", µî±Ş :" << SearchStd.Sub[cnt].Grade << ")ÀÇ Á¤º¸¸¦ ¼öÁ¤ÇÏ¼¼¿ä.";
+		cout << "\n*(" << SearchStd.Sub[cnt].SubName << ", í•™ì  :" << SearchStd.Sub[cnt].Hakjum << ", ë“±ê¸‰ :" << SearchStd.Sub[cnt].Grade << ")ì˜ ì •ë³´ë¥¼ ìˆ˜ì •í•˜ì„¸ìš”.";
 		return &pSt.Sub[cnt];
 	}
 };
